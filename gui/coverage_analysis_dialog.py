@@ -12,7 +12,7 @@ class CoverageAnalysisDialog(tk.Toplevel):
     """Dialog showing log coverage statistics."""
 
     @staticmethod
-    def _wrap_missing_lines(text: str, width: int = 50) -> str:
+    def _wrap_missing_lines(text: str, width: int = 70) -> str:
         """Wrap long missing line lists for display."""
         if not text:
             return ""
@@ -20,7 +20,7 @@ class CoverageAnalysisDialog(tk.Toplevel):
 
     @classmethod
     def _calculate_row_height(
-        cls, field_stats: dict, base_height: int, width: int = 50
+        cls, field_stats: dict, base_height: int, width: int = 70
     ) -> int:
         """Return row height based on wrapped missing line lengths."""
         max_lines = 1
@@ -36,7 +36,8 @@ class CoverageAnalysisDialog(tk.Toplevel):
         super().__init__(parent)
         set_window_icon(self)
         self.title(_("Coverage Analysis"))
-        self.minsize(360, 200)
+        self.minsize(600, 300)
+        self.geometry("700x400")
         self.resizable(True, True)
 
         self.coverage = coverage
@@ -46,6 +47,13 @@ class CoverageAnalysisDialog(tk.Toplevel):
             self,
             text=_("Coverage: {value}%").format(value=f"{coverage:.1f}"),
         ).pack(padx=10, pady=(10, 0))
+
+        btn_frame = ttk.Frame(self)
+        btn_frame.pack(fill="x", pady=(0, 10), padx=10)
+        ttk.Button(btn_frame, text=_("Copy"), command=self._copy).pack(
+            side="left", padx=(0, 5)
+        )
+        ttk.Button(btn_frame, text=_("OK"), command=self.destroy).pack(side="left")
 
         tree_frame = ttk.Frame(self)
         tree_frame.pack(fill="both", expand=True, padx=10, pady=10)
@@ -58,7 +66,7 @@ class CoverageAnalysisDialog(tk.Toplevel):
             tree_frame,
             columns=columns,
             show="headings",
-            height=5,
+            height=10,
             style="Coverage.Treeview",
         )
         self.tree.heading("field", text=_("Field"))
@@ -66,7 +74,7 @@ class CoverageAnalysisDialog(tk.Toplevel):
         self.tree.heading("missing", text=_("Missing Lines"))
         self.tree.column("field", width=120, anchor="w", stretch=False)
         self.tree.column("percent", width=100, anchor="center", stretch=False)
-        self.tree.column("missing", width=240, anchor="w", stretch=True)
+        self.tree.column("missing", width=360, anchor="w", stretch=True)
 
         vsb = ttk.Scrollbar(tree_frame, orient="vertical", command=self.tree.yview)
         hsb = ttk.Scrollbar(tree_frame, orient="horizontal", command=self.tree.xview)
@@ -87,12 +95,6 @@ class CoverageAnalysisDialog(tk.Toplevel):
             missing_str = self._wrap_missing_lines(missing_str)
             self.tree.insert("", "end", values=(field, f"{percent:.1f}", missing_str))
 
-        btn_frame = ttk.Frame(self)
-        btn_frame.pack(pady=(0, 10))
-        ttk.Button(btn_frame, text=_("Copy"), command=self._copy).pack(
-            side="left", padx=(0, 5)
-        )
-        ttk.Button(btn_frame, text="OK", command=self.destroy).pack(side="left")
 
         self.bind("<Escape>", lambda e: self.destroy())
         self.bind_all("<Control-c>", lambda e: self._copy())
