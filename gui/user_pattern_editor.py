@@ -147,15 +147,25 @@ class UserPatternEditorDialog(tk.Toplevel):
     def _delete_current(self):
         if self.selected_index is None:
             return
-        del self.patterns[self.selected_index]
-        self.listbox.delete(self.selected_index)
-        self.selected_index = None
-        self.name_var.set("")
-        self.regex_var.set("")
-        self.category_var.set("")
-        self.fields_var.set("")
-        self.priority_var.set("")
-        self.keys_var.set("")
+        idx = self.selected_index
+        del self.patterns[idx]
+        self.listbox.delete(idx)
+
+        json_utils.save_user_patterns(self.patterns)
+        if self.patterns:
+            new_idx = min(idx, len(self.patterns) - 1)
+            self.listbox.selection_clear(0, tk.END)
+            self.listbox.selection_set(new_idx)
+            self.selected_index = new_idx
+            self._on_select()
+        else:
+            self.selected_index = None
+            self.name_var.set("")
+            self.regex_var.set("")
+            self.category_var.set("")
+            self.fields_var.set("")
+            self.priority_var.set("")
+            self.keys_var.set("")
 
     # ------------------------------------------------------------------
     def _add_new(self):
