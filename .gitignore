@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# VS Code
+.vscode/
+
+# PyCharm
+# Ignore JetBrains IDE config directory
+.idea/
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+
+# Test artifacts
+*.out
+*.tmp
+.pytest_cache/
+.coverage
+coverage.xml

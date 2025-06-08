@@ -1,0 +1,196 @@
+{
+  "fields": [
+    {
+      "key": "rt",
+      "name": "Receipt Time",
+      "category": "Time",
+      "example": "2024-06-02T12:00:00Z"
+    },
+    {
+      "key": "start",
+      "name": "Start Time",
+      "category": "Time",
+      "example": "2024-06-02T11:58:00Z"
+    },
+    {
+      "key": "end",
+      "name": "End Time",
+      "category": "Time",
+      "example": "2024-06-02T12:01:00Z"
+    },
+    {
+      "key": "src",
+      "name": "Source IP",
+      "category": "Network",
+      "example": "192.168.1.1"
+    },
+    {
+      "key": "dst",
+      "name": "Destination IP",
+      "category": "Network",
+      "example": "10.0.0.5"
+    },
+    {
+      "key": "shost",
+      "name": "Source Hostname",
+      "category": "Network",
+      "example": "client.local"
+    },
+    {
+      "key": "dhost",
+      "name": "Destination Hostname",
+      "category": "Network",
+      "example": "server.local"
+    },
+    {
+      "key": "spt",
+      "name": "Source Port",
+      "category": "Network",
+      "example": "443"
+    },
+    {
+      "key": "dpt",
+      "name": "Destination Port",
+      "category": "Network",
+      "example": "80"
+    },
+    {
+      "key": "proto",
+      "name": "Protocol",
+      "category": "Network",
+      "example": "TCP"
+    },
+    {
+      "key": "suser",
+      "name": "Source User",
+      "category": "User",
+      "example": "admin"
+    },
+    {
+      "key": "duser",
+      "name": "Destination User",
+      "category": "User",
+      "example": "john.doe"
+    },
+    {
+      "key": "cs1Label",
+      "name": "Custom User Type Label",
+      "category": "User",
+      "example": "user type"
+    },
+    {
+      "key": "cs1",
+      "name": "Custom User Type",
+      "category": "User",
+      "example": "guest"
+    },
+    {
+      "key": "fname",
+      "name": "Filename",
+      "category": "File",
+      "example": "report.pdf"
+    },
+    {
+      "key": "fsize",
+      "name": "File Size",
+      "category": "File",
+      "example": "1048576"
+    },
+    {
+      "key": "filePath",
+      "name": "File Path",
+      "category": "File",
+      "example": "/var/log/syslog"
+    },
+    {
+      "key": "fileHash",
+      "name": "File Hash",
+      "category": "File",
+      "example": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "key": "act",
+      "name": "Action",
+      "category": "Outcome",
+      "example": "allow"
+    },
+    {
+      "key": "outcome",
+      "name": "Outcome",
+      "category": "Outcome",
+      "example": "success"
+    },
+    {
+      "key": "msg",
+      "name": "Message",
+      "category": "Outcome",
+      "example": "Login failed"
+    },
+    {
+      "key": "reason",
+      "name": "Reason",
+      "category": "Outcome",
+      "example": "Policy violation"
+    },
+    {
+      "key": "cs2Label",
+      "name": "Session ID Label",
+      "category": "Security",
+      "example": "session ID"
+    },
+    {
+      "key": "cs2",
+      "name": "Session ID",
+      "category": "Security",
+      "example": "A34F13B"
+    },
+    {
+      "key": "cs3Label",
+      "name": "Auth Method Label",
+      "category": "Security",
+      "example": "auth method"
+    },
+    {
+      "key": "cs3",
+      "name": "Authentication Method",
+      "category": "Security",
+      "example": "password"
+    },
+    {
+      "key": "severity",
+      "name": "Severity",
+      "category": "Metadata",
+      "example": "5"
+    },
+    {
+      "key": "deviceVendor",
+      "name": "Device Vendor",
+      "category": "Device",
+      "example": "Fortinet"
+    },
+    {
+      "key": "deviceProduct",
+      "name": "Device Product",
+      "category": "Device",
+      "example": "FortiGate"
+    },
+    {
+      "key": "deviceVersion",
+      "name": "Device Version",
+      "category": "Device",
+      "example": "6.2.3"
+    },
+    {
+      "key": "signatureID",
+      "name": "Signature ID",
+      "category": "Metadata",
+      "example": "12345"
+    },
+    {
+      "key": "name",
+      "name": "Event Name",
+      "category": "Metadata",
+      "example": "Access blocked"
+    }
+  ]
+}

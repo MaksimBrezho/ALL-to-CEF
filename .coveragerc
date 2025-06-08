@@ -1,0 +1,6 @@
+[run]
+omit =
+    build_installer.py
+    main.py
+    gui/*
+    */pytest-*/**

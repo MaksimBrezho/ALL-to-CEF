@@ -1,0 +1,47 @@
+@startuml packages_LogParserHelper
+set namespaceSeparator none
+package "gui" as gui {
+}
+package "gui.app_window" as gui.app_window {
+}
+package "gui.cef_field_dialog" as gui.cef_field_dialog {
+}
+package "gui.code_generator_dialog" as gui.code_generator_dialog {
+}
+package "gui.pattern_panel" as gui.pattern_panel {
+}
+package "gui.pattern_wizard" as gui.pattern_wizard {
+}
+package "gui.tooltip" as gui.tooltip {
+}
+package "gui.transform_editor" as gui.transform_editor {
+}
+package "utils" as utils {
+}
+package "utils.code_generator" as utils.code_generator {
+}
+package "utils.color_utils" as utils.color_utils {
+}
+package "utils.json_utils" as utils.json_utils {
+}
+package "utils.text_utils" as utils.text_utils {
+}
+package "utils.transform_logic" as utils.transform_logic {
+}
+gui.app_window --> gui.cef_field_dialog
+gui.app_window --> gui.code_generator_dialog
+gui.app_window --> gui.pattern_panel
+gui.app_window --> gui.pattern_wizard
+gui.app_window --> gui.tooltip
+gui.app_window --> utils.color_utils
+gui.app_window --> utils.json_utils
+gui.app_window --> utils.text_utils
+gui.code_generator_dialog --> gui.transform_editor
+gui.code_generator_dialog --> utils
+gui.code_generator_dialog --> utils.transform_logic
+gui.pattern_panel --> utils.color_utils
+gui.pattern_wizard --> gui.tooltip
+gui.pattern_wizard --> utils.json_utils
+gui.transform_editor --> utils.transform_logic
+utils.code_generator --> utils.transform_logic
+@enduml

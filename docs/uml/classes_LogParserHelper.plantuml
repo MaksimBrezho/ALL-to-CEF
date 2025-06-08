@@ -1,0 +1,134 @@
+@startuml classes_LogParserHelper
+set namespaceSeparator none
+class "AppWindow" as gui.app_window.AppWindow {
+  cef_fields
+  coverage_label : Label
+  current_page : int
+  logs : list
+  match_cache : dict
+  page_size : int
+  pattern_panel : NoneType
+  patterns : list
+  per_log_patterns : list
+  source_path : tuple
+  spinbox : Spinbox
+  status_label : Label
+  tag_map : dict
+  text_area : Text
+  tooltip
+  get_selected_lines()
+  load_log_file()
+  next_page()
+  on_hover(event)
+  open_code_generator()
+  open_pattern_wizard()
+  prev_page()
+  render_page()
+  save_current_patterns()
+  update_page_size()
+}
+class "CEFFieldDialog" as gui.cef_field_dialog.CEFFieldDialog {
+  cef_fields
+  initial : set
+  result : NoneType
+  var_map : dict
+}
+class "CodeGeneratorDialog" as gui.code_generator_dialog.CodeGeneratorDialog {
+  CONSTANT_FIELDS : set
+  MANDATORY_FIELDS : list
+  header_vars : dict
+  log_key : NoneType
+  logs : list
+  mapping_frame : Labelframe
+  mapping_list : Frame
+  mappings : list
+  per_log_patterns : list
+}
+class "PatternPanel" as gui.pattern_panel.PatternPanel {
+  canvas : Canvas
+  cef_fields
+  check_vars : dict
+  checkboxes : dict
+  frame : Frame
+  on_toggle_callback : NoneType
+  patterns : list
+  scrollbar : Scrollbar
+  refresh(color_map, pattern_index_map)
+}
+class "PatternWizardDialog" as gui.pattern_wizard.PatternWizardDialog {
+  MULTI_CATEGORY : str
+  SNIPPET_DEFAULT : str
+  advanced_frame : Frame
+  case_insensitive : BooleanVar
+  categories
+  category_label : Label
+  category_var : StringVar
+  cef_category_map
+  cef_field_inner : Frame
+  cef_fields
+  cef_search_var : StringVar
+  context_lines
+  current_page : int
+  digit_min_length_var : IntVar
+  digit_mode_display_var : StringVar
+  digit_mode_values : dict
+  digit_mode_var : StringVar
+  example_list : Listbox
+  fragment_context : list
+  log_name
+  match_frame : Labelframe
+  match_text : Text
+  max_enum_options_var : IntVar
+  merge_by_prefix_var : BooleanVar
+  merge_text_tokens_var : BooleanVar
+  name_var : StringVar
+  page_label_var : StringVar
+  page_size : int
+  prefer_alternatives_var : BooleanVar
+  regex_entry : Text
+  regex_history : list
+  regex_var : StringVar
+  selected_field_vars : dict
+  selected_lines
+  show_advanced : BooleanVar
+  show_mode : StringVar
+  snippet_map
+  snippet_var : StringVar
+  source_file
+  total_pages : int
+  window_left_var : StringVar
+  window_right_var : StringVar
+  next_page()
+  prev_page()
+}
+class "ToolTip" as gui.tooltip.ToolTip {
+  delay : int
+  id : NoneType
+  tipwindow : NoneType, Toplevel
+  widget
+  hidetip()
+  schedule(text, x, y)
+  showtip(text, x, y)
+  unschedule()
+}
+class "TransformEditorDialog" as gui.transform_editor.TransformEditorDialog {
+  TRANSFORMS : list
+  example_box : Text
+  examples : list
+  logs : list
+  map_text : Text
+  regex : str
+  replace_pattern_var : StringVar
+  replace_with_var : StringVar
+  result : NoneType, str
+  show_token_editor : BooleanVar
+  token_adv_frame : Frame
+  token_frame : Frame
+  token_order : NoneType, list
+  token_widgets : list[ttk.Label]
+  tokens : list
+  var : StringVar
+}
+gui.pattern_panel.PatternPanel --* gui.app_window.AppWindow : pattern_panel
+gui.tooltip.ToolTip --* gui.app_window.AppWindow : tooltip
+@enduml
