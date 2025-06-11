@@ -99,4 +99,4 @@ Jieming Zhu, Shilin He, Pinjia He, Jinyang Liu, Michael R. Lyu. [Loghub: A Large
 
 ## Лицензия
 
-Проект распространяется под [не-коммерческой лицензией](LICENSE).
+Проект распространяется под [некоммерческой лицензией](LICENSE).
