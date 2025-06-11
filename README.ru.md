@@ -1,5 +1,3 @@
-<p align="right"><a href="README.ru.md">🇷🇺 Русская версия</a></p>
-
 <p align="center">
   <img src="icon/ALLtoCEF.png" alt="ALL to CEF icon" width="200">
 </p>
