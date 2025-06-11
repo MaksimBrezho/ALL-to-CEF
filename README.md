@@ -91,6 +91,8 @@ transformations are supported:
 
 Transformations can also specify token reordering, value replacement and
 value maps. See `utils/transform_logic.py` for full details.
+Mappings created automatically for CEF fields of the `Time` category
+use this transformation by default.
 
 ## Project structure
 
@@ -100,9 +102,6 @@ utils/  – JSON helpers, color utilities and the code generator
 gui/    – Tkinter user interface modules
 data/   – built‑in patterns, CEF field definitions and sample logs
 ```
-
-Mappings created automatically for CEF fields of the `Time` category
-use this transformation by default.
 
 ## Documentation
 
