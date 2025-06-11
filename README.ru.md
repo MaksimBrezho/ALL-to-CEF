@@ -1,3 +1,16 @@
+<p align="right"><a href="README.ru.md">🇷🇺 Русская версия</a></p>
+
+<p align="center">
+  <img src="icon/ALLtoCEF.png" alt="ALL to CEF icon" width="200">
+</p>
+
+<h1 align="center">ALL to CEF</h1>
+
+<p align="center">
+  <img alt="Python" src="https://img.shields.io/badge/python-3.11%2B-blue?logo=python">
+  <img alt="License" src="https://img.shields.io/badge/license-Non--commercial-lightgrey">
+</p>
+
 ALL to CEF — это набор утилит и графический интерфейс для экспериментов с логами. Он позволяет создавать регулярные выражения, подсвечивать логи и генерировать код для преобразования в формат CEF (Common Event Format).
 
 ## Возможности
